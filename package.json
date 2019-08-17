@@ -1,0 +1,16 @@
+{
+  "name": "jekyll-azure-search",
+  "version": "1.0.0",
+  "description": "Creates and rebuilds Azure Search index for Jekyll blogs",
+  "main": "createIndex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Waldek Mastykarz",
+  "license": "ISC",
+  "dependencies": {
+    "remove-markdown": "^0.3.0",
+    "yaml": "^1.6.0",
+    "yargs": "^4.1.0"
+  }
+}

@@ -4,78 +4,122 @@
     {
       "name": "id",
       "type": "Edm.String",
-      "searchable": false,
-      "filterable": false,
-      "sortable": false,
       "facetable": false,
+      "filterable": false,
       "key": true,
-      "retrievable": true
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": [],
+      "fields": []
     },
     {
       "name": "title",
       "type": "Edm.String",
-      "searchable": true,
-      "filterable": true,
-      "sortable": false,
       "facetable": false,
+      "filterable": true,
       "key": false,
-      "retrievable": true
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": [],
+      "fields": []
     },
     {
       "name": "content",
       "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "sortable": false,
       "facetable": false,
+      "filterable": false,
       "key": false,
-      "retrievable": true
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": [],
+      "fields": []
     },
     {
       "name": "url",
       "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "sortable": false,
       "facetable": false,
+      "filterable": false,
       "key": false,
-      "retrievable": true
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": [],
+      "fields": []
     },
     {
       "name": "pubDate",
       "type": "Edm.DateTimeOffset",
-      "searchable": false,
-      "filterable": true,
-      "sortable": true,
       "facetable": true,
-      "key": false,
-      "retrievable": true
+      "filterable": true,
+      "retrievable": true,
+      "sortable": true,
+      "analyzer": null,
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": [],
+      "fields": []
+    },
+    {
+      "name": "tags",
+      "type": "Collection(Edm.String)",
+      "facetable": true,
+      "filterable": true,
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "standard.lucene",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null,
+      "synonymMaps": [],
+      "fields": []
     }
   ],
+  "suggesters": [],
   "scoringProfiles": [
     {
       "name": "boostRecent",
-      "functionAggregation": "sum",
-      "text": {
-        "weights": {
-          "title": 5.0,
-          "content": 1.0
-        }
-      },
       "functions": [
         {
           "fieldName": "pubDate",
-          "interpolation": "quadratic",
-          "type": "freshness",
-          "boost": 10.0,
           "freshness": {
             "boostingDuration": "P365D"
           },
+          "interpolation": "quadratic",
           "magnitude": null,
           "distance": null,
-          "tag": null
+          "tag": null,
+          "type": "freshness",
+          "boost": 3
         }
-      ]
+      ],
+      "functionAggregation": 0,
+      "text": {
+        "weights": {
+          "title": 5,
+          "tags": 3,
+          "content": 1
+        }
+      }
     }
-  ]
+  ],
+  "defaultScoringProfile": "boostRecent",
+  "corsOptions": null,
+  "analyzers": [],
+  "charFilters": [],
+  "tokenFilters": [],
+  "tokenizers": []
 }

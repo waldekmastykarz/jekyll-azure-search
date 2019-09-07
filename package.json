@@ -9,8 +9,8 @@
   "author": "Waldek Mastykarz",
   "license": "ISC",
   "dependencies": {
+    "gray-matter": "^4.0.2",
     "remove-markdown": "^0.3.0",
-    "yaml": "^1.6.0",
     "yargs": "^4.1.0"
   }
 }

@@ -4,7 +4,7 @@
 var fs = require('fs'),
     path = require('path'),
     https = require('https'),
-    yaml = require('yaml'),
+    matter = require('gray-matter'),
     removeMd = require('remove-markdown'),
     argv = require('yargs').argv;
 
@@ -51,17 +51,20 @@ if (hasError) {
 var posts = [];
 var postFiles = fs.readdirSync(postsDir);
 postFiles.forEach(f => {
+    if (!f.endsWith('.markdown') && !f.endsWith('.md')) {
+        return;
+    }
+
     var postFile = fs.readFileSync(path.resolve(postsDir, f), 'utf-8');
-    var contents = postFile.match(/---(.*?)---\s*(.*)/s);
-    var frontMatter = yaml.parse(contents[1]);
-    var body = contents[2];
+    var doc = matter(postFile);
     posts.push({
         '@search.action': 'mergeOrUpload',
-        id: frontMatter.slug,
-        title: frontMatter.title,
-        content: removeMd(body.replace(/<[^>]+>/g, ' ')),
-        url: blogUrl + '/' + frontMatter.slug + '/',
-        pubDate: new Date(frontMatter.date)
+        id: doc.data.slug,
+        title: doc.data.title,
+        content: removeMd(doc.content.replace(/<[^>]+>/g, ' ')),
+        url: blogUrl + '/' + doc.data.slug + '/',
+        pubDate: new Date(doc.data.date),
+        tags: doc.data.tags ? doc.data.tags.map(t => t.replace(/-/g, ' ')) : []
     });
 });
 

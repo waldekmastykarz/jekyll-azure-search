@@ -12,7 +12,7 @@ Following are two node.js scripts that can help you create and build a search in
 
 ## Creating the index
 
-The first step is to create the definition of the search index. As a starting point you can use the definition provided in the [index.json](index.json) file but feel free to extend it as necessary using the additional information provided at [https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).
+The first step is to create the definition of the search index. As a starting point you can use the definition provided in the [index.json](index.json) file but feel free to extend it as necessary using the additional information provided at [https://msdn.microsoft.com/library/azure/dn798941.aspx?WT.mc_id=m365-0000-wmastyka](https://msdn.microsoft.com/library/azure/dn798941.aspx?WT.mc_id=m365-0000-wmastyka).
 
 When done run the **createIndex.js** script:
 
@@ -47,4 +47,4 @@ Following are the arguments that you have to pass:
 * **adminKey** - the admin key to your Azure Search instance
 * **blogUrl** - the URL of your blog without the trailing slash, eg. *https://jekyllblog.hosting.io*. This URL is used to prepend your blog posts' slugs
 
-Having completed these steps the last thing left for you to do, is to have the search box on your blog call the Azure Search API. More information about it is available on [https://msdn.microsoft.com/en-US/library/azure/dn798927.aspx](https://msdn.microsoft.com/en-US/library/azure/dn798927.aspx).
+Having completed these steps the last thing left for you to do, is to have the search box on your blog call the Azure Search API. More information about it is available on [https://msdn.microsoft.com/library/azure/dn798927.aspx?WT.mc_id=m365-0000-wmastyka](https://msdn.microsoft.com/library/azure/dn798927.aspx?WT.mc_id=m365-0000-wmastyka).

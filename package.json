@@ -11,6 +11,6 @@
   "dependencies": {
     "gray-matter": "^4.0.2",
     "remove-markdown": "^0.3.0",
-    "yargs": "^4.1.0"
+    "yargs": "^18.0.0"
   }
 }
